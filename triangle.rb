@@ -16,7 +16,9 @@
 def triangle(a, b, c)
   # WRITE THIS CODE
   if a <= 0 || b <= 0 || c <= 0
-  	raise TriangleError, "sides can not be less than 1"  	
+  	raise TriangleError, "sides can not be less than 1"
+  elsif (a + b) <= c || (a + c) <= b || (c + b) <= a
+  	raise TriangleError, "two sides can not be shorter or the same length as the last side"
   else
 	  if a == b && a == c
 	  	return :equilateral
