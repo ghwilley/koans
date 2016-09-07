@@ -15,15 +15,24 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
-  if a == b && a == c
-  	return :equilateral
-	elsif a == c || b == c || a == b
-  	return :isosceles
-	else
-		return :scalene
-  end
+  if a <= 0 || b <= 0 || c <= 0
+  	raise TriangleError, "sides can not be less than 1"  	
+  else
+	  if a == b && a == c
+	  	return :equilateral
+		elsif a == c || b == c || a == b
+	  	return :isosceles
+		elsif a != b && b != c && c !=a
+			return :scalene
+		else
+	    raise TriangleError
+	  end
+	end
 end
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
+	def initialize(message)
+		message = message
+	end
 end
