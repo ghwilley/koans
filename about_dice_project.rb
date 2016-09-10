@@ -8,7 +8,7 @@ class DiceSet
   def roll(times)
     @results = []
     while times >= 1
-      @results << rand(6)
+      @results << rand(5) + 1
       times -= 1
     end
     @results
